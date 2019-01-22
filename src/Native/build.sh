@@ -79,10 +79,13 @@ elif command -v "clang-3.9" > /dev/null 2>&1; then
 elif command -v clang > /dev/null 2>&1; then
     export CC="$(command -v clang)"
     export CXX="$(command -v clang++)"
+elif command -v gcc > /dev/null 2>&1; then
+    export CC="$(command -v gcc)"
+    export CXX="$(command -v g++)"
 else
-    echo "Unable to find Clang Compiler"
-    echo "Install clang-3.5 or clang3.6 or clang3.9"
-    exit 1
+    echo "Unable to find Clang or gcc Compilers"
+    echo "Install clang-3.5 or clang3.6 or clang3.9 or gcc7.3.0"
+    #exit 1
 fi
 
 # Specify path to be set for CMAKE_INSTALL_PREFIX.
